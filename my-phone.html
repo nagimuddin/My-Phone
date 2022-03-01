@@ -5,9 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Phone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>My Phone</h1>
+    <h1 class="text-6xl text-center hover:text-blue-600 font-bold"> Phone</h1>
+    <form id="search" class="text-center mt-5">
+        <input id="search-field" class="bg-cyan-600 pl-3 py-2 md:rounded-lg placeholder:text-white" type="text" placeholder="Search Your Phone">
+        <button id="search-button" onclick="searchPhone()" class="rounded-md bg-blue-600 text-white px-6 py-2 ">Search Me</button>
+    </form>
     <script src="my-phone.js"></script>
 </body>
 </html>
