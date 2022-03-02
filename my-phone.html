@@ -5,28 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Phone</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
 </head>
-<body class="bg-sky-100">
-    <h1 class="text-center text-success">My Phone</h1>
-    <!-- Phone Search Area -->
-    <div class="input-group mb-3 w-50 mx-auto">
-        <input id="search-field" type="text" class="form-control" placeholder="Search Your Phone" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
-      </div>
-      <!-- Phone Search Result -->
-      <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
-        
-      </div>
+<body>
+    <!-- Header Area -->
+    <header class="p-14">
+        <h1 class="text-green-600 text-bold text-5xl font-bold text-center">My Phone</h1>
+    </header>
+    <!-- Header Area -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="my-phone.js"></script>
+    <main>
+        <form>
+            <div class="search-form relative my-8 text-center max-w-lg mx-auto">
+                <input id="search-box" type="text" class="bg-slate-100 py-5 px-4 w-full" placeholder="Search Your Phone">
+                <button id="submit" onclick="searchPhone()" type="button" class="py-3 px-5 bg-slate-200 text-green-800 text-lg font-bold absolute top-3 right-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                      </svg>
+                </button>
+            </div>
+        </form>
+        <div id="phone-details" class="phone-details"></div>
+        
+        <div id="phones" class="max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mx-auto gap-5"></div>
+    </main>
+    
+    <script src="app.js"></script>
 </body>
 </html>
-<!-- <h1 class="text-6xl text-center hover:text-blue-600 font-bold">My Phone</h1> -->
-    <!-- Search Field -->
-    <!-- <form id="search" class="text-center mt-5">
-        <input id="search-field" class="bg-cyan-600 pl-3 py-2 md:rounded-lg placeholder:text-white" type="text" placeholder="Search Your Phone">
-        <button id="search-button" type="submit" onclick="searchPhone()" class="rounded-md bg-blue-600 text-white px-6 py-2 ">Search Me</button>
-    </form> -->
