@@ -1,3 +1,4 @@
+
 const searchPhone = async () => {
     const searchField = document.getElementById('search-box');
     const searchText = searchField.value;
@@ -8,10 +9,11 @@ const searchPhone = async () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 
     const res = await fetch(url);
-    const data = await res.json();  
+    const data = await res.json();  // wait for the response
     getData(data);
 
 }
+
 
 const getData = name => {
     const phones = name.data.slice(0,20);
@@ -121,6 +123,7 @@ const phoneDetails = details => {
         </div>
     </div>
     `;
+    // body.appendChild(div);
+
     // console.log(releaseDate);
 }
-
