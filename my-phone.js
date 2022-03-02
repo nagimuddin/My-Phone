@@ -8,11 +8,10 @@ const searchPhone = async () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 
     const res = await fetch(url);
-    const data = await res.json();  // wait for the response
+    const data = await res.json();  
     getData(data);
 
 }
-
 
 const getData = name => {
     const phones = name.data.slice(0,20);
@@ -62,68 +61,66 @@ const getData = name => {
     }
 }
 
-const loadMore = async name => {
-    const url = `https://openapi.programming-hero.com/api/phone/${name}`;
+// const loadMore = async name => {
+//     const url = `https://openapi.programming-hero.com/api/phone/${name}`;
 
-    const res = await fetch(url);
-    const data = await res.json();  // wait for the response
-    phoneDetails(data);
-}
+//     const res = await fetch(url);
+//     const data = await res.json();  // wait for the response
+//     phoneDetails(data);
+// }
 
-const phoneDetails = details => {
-    const phoneData = details.data;
-    const sensors = phoneData.mainFeatures.sensors;
-    const keys = phoneData.others ? Object.entries(phoneData.others) : [];
-    const releaseDate = phoneData.releaseDate ? phoneData.releaseDate : 'No Release Date Found';
-    const modelDetails = document.getElementById('phone-details');
+// const phoneDetails = details => {
+//     const phoneData = details.data;
+//     const sensors = phoneData.mainFeatures.sensors;
+//     const keys = phoneData.others ? Object.entries(phoneData.others) : [];
+//     const releaseDate = phoneData.releaseDate ? phoneData.releaseDate : 'No Release Date Found';
+//     const modelDetails = document.getElementById('phone-details');
 
-    modelDetails.innerHTML = `
-    <div class="mx-auto px-4 py-8 bg-white rounded-lg max-w-4xl mt-12 mb-16 shadow-2xl">
-        <div class="md:flex flex-wrap">
-            <div class="w-full md:w-1/2 px-4 mb-12 md:mb-0">
-                <div class="relative">
-                    <img class="w-full" src="${phoneData.image}" alt="">
-                </div>
-            </div>
-            <div class="w-full md:w-1/2 px-4">
-                <div class="flex flex-wrap -mx-4">
-                    <div class="w-full px-4">
-                        <div class="text-3xl font-bold text-black-900 dark:text-sky-400">
-                            ${phoneData.name}
-                        </div>
-                        <div class="text-lg text-amber-900 dark:text-sky-400">
-                            ${phoneData.brand}
-                        </div>
-                        <div class="mt-6">
-                            <p class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
-                                <strong>ID:</strong>
-                                <span>${phoneData.slug}</span>
-                            </p>
-                            <p class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
-                                <strong>Storage:</strong>
-                                <span>${phoneData.mainFeatures.storage}</span>                                
-                            </p>
-                            <p class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
-                                <strong>Release Date:</strong>
-                                <span>${releaseDate}</span>
-                            </p>
-                            <div class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
-                                <strong>Sensor:</strong>
-                                <ul>${sensors.map(sensor => `<li>${sensor}</li>`).join('')}</ul>
-                            </div>
-                            <div class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
-                                <strong>Others:</strong>
-                                <ul>${keys.map((value) => `<li>${value[0]} : ${value[1]}</li>`).join('')}</ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-    // body.appendChild(div);
-
-    // console.log(releaseDate);
-}
+//     modelDetails.innerHTML = `
+//     <div class="mx-auto px-4 py-8 bg-white rounded-lg max-w-4xl mt-12 mb-16 shadow-2xl">
+//         <div class="md:flex flex-wrap">
+//             <div class="w-full md:w-1/2 px-4 mb-12 md:mb-0">
+//                 <div class="relative">
+//                     <img class="w-full" src="${phoneData.image}" alt="">
+//                 </div>
+//             </div>
+//             <div class="w-full md:w-1/2 px-4">
+//                 <div class="flex flex-wrap -mx-4">
+//                     <div class="w-full px-4">
+//                         <div class="text-3xl font-bold text-black-900 dark:text-sky-400">
+//                             ${phoneData.name}
+//                         </div>
+//                         <div class="text-lg text-amber-900 dark:text-sky-400">
+//                             ${phoneData.brand}
+//                         </div>
+//                         <div class="mt-6">
+//                             <p class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
+//                                 <strong>ID:</strong>
+//                                 <span>${phoneData.slug}</span>
+//                             </p>
+//                             <p class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
+//                                 <strong>Storage:</strong>
+//                                 <span>${phoneData.mainFeatures.storage}</span>                                
+//                             </p>
+//                             <p class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
+//                                 <strong>Release Date:</strong>
+//                                 <span>${releaseDate}</span>
+//                             </p>
+//                             <div class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
+//                                 <strong>Sensor:</strong>
+//                                 <ul>${sensors.map(sensor => `<li>${sensor}</li>`).join('')}</ul>
+//                             </div>
+//                             <div class="mt-2 text-lg text-lime-900 dark:text-sky-400 flex gap-4">
+//                                 <strong>Others:</strong>
+//                                 <ul>${keys.map((value) => `<li>${value[0]} : ${value[1]}</li>`).join('')}</ul>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     `;
+//     // console.log(releaseDate);
+// }
 
